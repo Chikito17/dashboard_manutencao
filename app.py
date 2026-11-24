@@ -1,3 +1,9 @@
-import streamlit as st
+import streamlit as st 
+from dataset import df
 
-st.title('Manutenção LTQ - AGM')
+st.set_page_config(layout='wide') # Para usar toda a janela
+
+st.title('Manutenção LTQ - AGM') # Titulo da aplicacao
+
+st.sidebar.title('Filtros')
+
