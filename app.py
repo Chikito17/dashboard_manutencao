@@ -11,12 +11,22 @@ st.title('Manutenção LTQ - AGM') # Titulo da aplicacao
 st.sidebar.title('Filtros') # Essa linha cria uma aba removivel com o nome Fitros
 
 filtro_tag = st.sidebar.text_input('Digite a tag') # Adiciona uma caixa de texto na barra lateral
+filtro_endereco = st.sidebar.text_input('Digite o Bit') 
 
 if filtro_tag:
+    filtro_endereco = ""
     df_rm = df_rm[df_rm['Tag'].str.contains(filtro_tag, case=False, na=False)]
     df_sm = df_sm[df_sm['Tag'].str.contains(filtro_tag, case=False, na=False)]
     df_dc = df_dc[df_dc['Tag'].str.contains(filtro_tag, case=False, na=False)]
     df_smf = df_smf[df_smf['Tag'].str.contains(filtro_tag, case=False, na=False)]
+
+if filtro_endereco:
+    filtro_tag = ""
+    df_rm = df_rm[df_rm['SIEMENS'].str.contains(filtro_endereco, case=False, na=False)]
+    df_sm = df_sm[df_sm['SIEMENS'].str.contains(filtro_endereco, case=False, na=False)]
+    df_dc = df_dc[df_dc['SIEMENS'].str.contains(filtro_endereco, case=False, na=False)]
+    df_smf = df_smf[df_smf['SIEMENS'].str.contains(filtro_endereco, case=False, na=False)]
+
 
     
 
