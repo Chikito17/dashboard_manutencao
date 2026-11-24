@@ -10,3 +10,6 @@ st.sidebar.title('Filtros') # Essa linha cria uma aba removivel com o nome Fitro
 filtro_tag = st.sidebar.text_input('') # Adiciona uma caixa de texto na barra lateral
 
 aba1, aba2, aba3, aba4 = st.tabs(['Mapa de Memoria RM', 'Mapa de Memoria SM', 'Mapa de Memoria DC','Mapa de Memoria SMF'])
+
+with aba1:
+    st.dataframe(df)
