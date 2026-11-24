@@ -10,10 +10,10 @@ st.title('Manutenção LTQ - AGM') # Titulo da aplicacao
 
 st.sidebar.title('Filtros') # Essa linha cria uma aba removivel com o nome Fitros
 
-filtro_tag = st.sidebar.text_input('') # Adiciona uma caixa de texto na barra lateral
+filtro_tag = st.sidebar.text_input('Digite a tag') # Adiciona uma caixa de texto na barra lateral
 
 if filtro_tag:
-    df_rm = df_rm[df_rm['Tag'].isin(filtro_tag)]
+    df_rm = df_rm[df_rm['Tag'].str.contains(filtro_tag, case=False, na=False)]
 
 aba1, aba2, aba3, aba4 = st.tabs(['Mapa de Memoria RM', 'Mapa de Memoria SM', 'Mapa de Memoria DC','Mapa de Memoria SMF'])
 
