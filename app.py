@@ -14,6 +14,11 @@ filtro_tag = st.sidebar.text_input('Digite a tag') # Adiciona uma caixa de texto
 
 if filtro_tag:
     df_rm = df_rm[df_rm['Tag'].str.contains(filtro_tag, case=False, na=False)]
+    df_sm = df_sm[df_sm['Tag'].str.contains(filtro_tag, case=False, na=False)]
+    df_dc = df_dc[df_dc['Tag'].str.contains(filtro_tag, case=False, na=False)]
+    df_smf = df_smf[df_smf['Tag'].str.contains(filtro_tag, case=False, na=False)]
+
+    
 
 aba1, aba2, aba3, aba4 = st.tabs(['Mapa de Memoria RM', 'Mapa de Memoria SM', 'Mapa de Memoria DC','Mapa de Memoria SMF'])
 
