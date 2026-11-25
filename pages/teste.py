@@ -5,3 +5,5 @@ st.title('Teste Alessandro')
 
 st.sidebar.title('Filtro:')
 filtro_desc = st.sidebar.text_input('Vamos em Frente')
+
+st.dataframe(df_dcv)
