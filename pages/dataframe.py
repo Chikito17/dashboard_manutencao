@@ -16,6 +16,7 @@ if filtro_desc:
 
 st.dataframe(df_filtrado)
 
+
 # Exibe contagem de registros encontrados e a tabela
 st.caption(f"Exibindo {len(df_filtrado)} de {len(df_dcv)} registros.")
 st.dataframe(df_filtrado, use_container_width=True)
