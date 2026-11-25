@@ -60,7 +60,7 @@ with aba5:
     df_filtrado = df_dcv.copy()
 
     if filtro_desc:
-       df_filtrado = filtro_desc
+       df_filtrado = df_filtrado[df_filtrado['grupo'].isin(df_filtrado)] 
        # df_filtrado = df_filtrado[
        #     df_filtrado['grupo'].astype(str).str.contains(filtro_desc, case=False, na=False)
        # ]
