@@ -36,7 +36,7 @@ if filtro_descricao:
 
     
 
-aba1, aba2, aba3, aba4 = st.tabs(['Mapa de Memoria RM', 'Mapa de Memoria SM', 'Mapa de Memoria DC','Mapa de Memoria SMF'])
+aba1, aba2, aba3, aba4 = st.tabs(['Rougher', 'Steckel', 'Bob. Final','Fornos SMF'])
 
 with aba1:
     st.dataframe(df_rm)
