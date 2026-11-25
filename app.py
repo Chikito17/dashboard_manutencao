@@ -3,6 +3,7 @@ from dataset import df_rm
 from dataset import df_sm
 from dataset import df_dc
 from dataset import df_smf
+from dataset import df_dcv
 
 st.set_page_config(layout='wide') # Para usar toda a janela
 
@@ -36,7 +37,7 @@ if filtro_descricao:
 
     
 
-aba1, aba2, aba3, aba4 = st.tabs(['Rougher', 'Steckel', 'Bob. Final','Fornos SMF'])
+aba1, aba2, aba3, aba4, aba5 = st.tabs(['Rougher', 'Steckel', 'Bob. Final','Fornos SMF', 'DCV'])
 
 with aba1:
     st.dataframe(df_rm)
@@ -49,3 +50,6 @@ with aba3:
 
 with aba4:
     st.dataframe(df_smf)
+
+with aba5:
+    st.dataframe(df_dcv)

@@ -25,7 +25,14 @@ data_smf = json.load(file_smf)
 
 df_smf = pd.DataFrame.from_dict(data_smf)
 
+# Fornos SMF
+file_dcv = open('dados/DCV_j.json')
+data_dcv = json.load(file_dcv)
+
+df_dcv = pd.DataFrame.from_dict(data_dcv)
+
 file_rm.close()
 file_sm.close()
 file_dc.close()
 file_smf.close()
+file_dcv.close()
