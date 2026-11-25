@@ -14,7 +14,7 @@ if filtro_desc:
         df_filtrado['grupo'].astype(str).str.contains(filtro_desc, case=False, na=False)
     ]
 
-st.dataframe(df_filtrado)
+#st.dataframe(df_filtrado)
 
 
 # Exibe contagem de registros encontrados e a tabela

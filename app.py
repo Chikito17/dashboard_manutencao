@@ -9,7 +9,7 @@ st.set_page_config(layout='wide') # Para usar toda a janela
 
 st.title('Manutenção LTQ - AGM') # Titulo da aplicacao
 
-st.sidebar.title('Filtros') # Essa linha cria uma aba removivel com o nome Fitros
+st.sidebar.title('Filtros PLC:') # Essa linha cria uma aba removivel com o nome Fitros
 
 filtro_tag = st.sidebar.text_input('Digite a tag') # Adiciona uma caixa de texto na barra lateral
 filtro_endereco = st.sidebar.text_input('Digite o Bit') 
@@ -53,7 +53,7 @@ with aba4:
 
 with aba5:
     st.dataframe(df_dcv)
-    st.sidebar.title('Filtro:')
+    st.sidebar.title('Filtro DCV:')
     filtro_desc = st.sidebar.text_input('Digite o Parâmetro')
 
     # Mantém o original intacto e trabalha numa cópia
@@ -64,8 +64,7 @@ with aba5:
             df_filtrado['grupo'].astype(str).str.contains(filtro_desc, case=False, na=False)
         ]
 
-    st.dataframe(df_filtrado)
-
+    #st.dataframe(df_filtrado)
 
     # Exibe contagem de registros encontrados e a tabela
     st.caption(f"Exibindo {len(df_filtrado)} de {len(df_dcv)} registros.")
