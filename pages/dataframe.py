@@ -1,5 +1,5 @@
 import streamlit as st
-from dataset import df_dcv
+#from dataset import df_dcv
 
 st.title('Visão de Paradas')
 
