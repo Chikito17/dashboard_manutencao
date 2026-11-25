@@ -3,15 +3,11 @@ from dataset import df_dcv
 
 st.title('Visao de Paradas')
 
-st.sidebar.title('Filtros:')
-filtro_tag = st.sidebar.text_input('Digite o Parametro')
+st.sidebar.title('Filtro:')
+filtro_desc = st.sidebar.text_input('Digite o Parametro')
 
 
-st.title('Visao de Paradas')
-with st.expander('grupo'):
-    colunas = st.multiselect(
-        'Selecione ao Grupo',
-        list(df_dcv.columns),
-        list(df_dcv.columns)
-    )
+
+if filtro_desc:
+    df_dcv = df_dcv[df_dcv['grupo'].str.contains(filtro_desc, case=False, na=False)]
 st.dataframe(df_dcv)
