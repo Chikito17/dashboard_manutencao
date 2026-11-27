@@ -16,6 +16,9 @@ if filtro_desc:
     df_filtrado = df_filtrado[df_filtrado['grupo'] == filtro_desc]
     #df_filtrado = df_filtrado[df_filtrado['grupo'].astype(str).str.contains(filtro_desc, case=False, na=False)]
 
+if not df_filtrado.empty:
+    linha = df_filtrado.iloc[0]
+
 
 
 # Codigo para as Falhas
@@ -33,6 +36,8 @@ aba1, aba2 = st.tabs(['Parametros', 'Codigo de Falhas'])
 
 with aba1:
     st.dataframe(df_filtrado)
+    
 
 with aba2:
     st.dataframe(df_falha)
+    st.metric('Código', linha['Código'])
