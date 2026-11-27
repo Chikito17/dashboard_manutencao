@@ -184,11 +184,7 @@
         "Descrição": "Diferencial de Corrente",
         "O que fazer": ""
     },
-    {
-        "Código": "99",
-        "Descrição": "RESET",
-        "O que fazer": ""
-    },
+   
     {
         "Código": "101",
         "Descrição": "Inibição da chave de inicio falsa foi ligada",
