@@ -37,17 +37,16 @@ with aba1:
     
 
 with aba2:
-    col1, col2 = st.columns(2)
-    with col1:
-        if not df_falha.empty:
-            st.metric('Codigo', df_falha['Código'].item())
-
-    with col2:
+      
+    if not df_falha.empty:
+        st.metric('Codigo', df_falha['Código'].item())
         st.subheader("Descrição da falha")
         linha = df_falha.iloc[0]
         st.write(linha["Descrição"])
         with st.expander("Procedimento de correção"):
             st.text(linha["O que fazer"])
+
+        
         
         
        
