@@ -1,6 +1,7 @@
 import streamlit as st
 from dataset import df_dcv
 from dataset import df_dcv700
+import pandas as pd
 
 st.title('Acionamentos')
 
@@ -15,6 +16,7 @@ if filtro_desc:
     df_filtrado = df_filtrado[df_filtrado['grupo'] == filtro_desc]
     #df_filtrado = df_filtrado[df_filtrado['grupo'].astype(str).str.contains(filtro_desc, case=False, na=False)]
 
+st.dataframe(pd.DataFrame)
 
 # Codigo para as Falhas
 st.sidebar.title('Codigo de Falha:')
@@ -26,7 +28,7 @@ df_falha = df_dcv700.copy()
 if filtro_falha:
     df_falha = df_falha[df_falha['Código'] == filtro_falha]
 else:
-    st.dataframe('')
+    st.dataframe(pd.DataFrame)
               
   
 aba1, aba2 = st.tabs(['Parametros', 'Codigo de Falhas'])
