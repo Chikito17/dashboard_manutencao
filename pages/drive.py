@@ -44,6 +44,10 @@ with aba2:
 
     with col2:
         st.subheader("Descrição da falha")
+        linha = df_falha.iloc[0]
+        st.write(linha["Descrição"])
+        with st.expander("Procedimento de correção"):
+            st.text(linha["O que fazer"])
         
         
        
