@@ -27,8 +27,6 @@ df_falha = df_dcv700.copy()
 
 if filtro_falha:
     df_falha = df_falha[df_falha['Código'] == filtro_falha]
-else:
-    st.dataframe(pd.DataFrame)
               
   
 aba1, aba2 = st.tabs(['Parametros', 'Codigo de Falhas'])
