@@ -16,7 +16,7 @@ if filtro_desc:
     df_filtrado = df_filtrado[df_filtrado['grupo'] == filtro_desc]
     #df_filtrado = df_filtrado[df_filtrado['grupo'].astype(str).str.contains(filtro_desc, case=False, na=False)]
 
-st.dataframe(pd.DataFrame)
+
 
 # Codigo para as Falhas
 st.sidebar.title('Codigo de Falha:')
