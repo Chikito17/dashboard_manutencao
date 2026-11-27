@@ -37,7 +37,7 @@ with aba1:
     
 
 with aba2:
-    #st.dataframe(df_falha)
+    st.metric('Codigo', 0)
     if not df_falha.empty:
         st.metric('Codigo', df_falha['Código'].item()
        
