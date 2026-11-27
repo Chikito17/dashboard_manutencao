@@ -2,7 +2,7 @@ import streamlit as st
 from dataset import df_dcv
 from dataset import df_dcv700
 import pandas as pd
-from dataset import vazio
+from dataset import df_vaziodcv
 
 st.title('Acionamentos')
 
@@ -47,7 +47,7 @@ with aba2:
         with st.expander("Procedimento de correção"):
             st.text(linha["O que fazer"])
     else:
-        st.dataframe(vazio)
+        st.dataframe(df_vaziodcv)
 
         
         

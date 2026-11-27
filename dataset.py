@@ -37,9 +37,16 @@ data_dcv700 = json.load(file_dcv700)
 
 df_dcv700 = pd.DataFrame.from_dict(data_dcv700)
 
+# Falha Vazio
+file_vaziodcv = open('dados/vazio.json')
+data_vaziodcv = json.load(file_vaziodcv)
+
+df_vaziodcv = pd.DataFrame.from_dict(data_vaziodcv)
+
 file_rm.close()
 file_sm.close()
 file_dc.close()
 file_smf.close()
 file_dcv.close()
 file_dcv700.close()
+file_vaziodcv.close()
