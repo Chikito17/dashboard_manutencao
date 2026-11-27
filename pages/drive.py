@@ -39,15 +39,14 @@ with aba1:
 with aba2:
       
     if filtro_falha:
-        if not df_falha['Código'].empty():
-            st.metric('Codigo', 'F'+df_falha['Código'].item())
-            st.subheader("Descrição da falha")
-            linha = df_falha.iloc[0]
-            st.write(linha["Descrição"])
-            with st.expander("Procedimento de correção"):
-                st.text(linha["O que fazer"])
-        else:
-            st.dataframe(df_vaziodcv)
+        st.metric('Codigo', 'F'+df_falha['Código'].item())
+        st.subheader("Descrição da falha")
+        linha = df_falha.iloc[0]
+        st.write(linha["Descrição"])
+        with st.expander("Procedimento de correção"):
+            st.text(linha["O que fazer"])
+    else:
+        st.dataframe(df_vaziodcv)
 
 
         
