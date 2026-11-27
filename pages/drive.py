@@ -37,17 +37,5 @@ with aba1:
     
 
 with aba2:
-    #st.dataframe(df_falha)
-    col1, col2 = st.columns(2)
-
-    with col1:
-        st.metric("Código", linha["Código"])
-
-    with col2:
-        st.metric("Tipo de falha", "Sobrecorrente")
-
-        st.subheader("Descrição")
-        st.write(linha["Descrição"])
-
-        st.subheader("Procedimento")
-        st.write(linha["O que fazer"])
+    st.dataframe(df_falha)
+  
