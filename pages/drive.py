@@ -45,6 +45,8 @@ with aba2:
         st.write(linha["Descrição"])
         with st.expander("Procedimento de correção"):
             st.text(linha["O que fazer"])
+    else:
+        st.metric('Codigo', 'Digite um Codigo ao lado')
 
         
         
