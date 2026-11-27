@@ -27,7 +27,7 @@ df_falha = df_dcv700.copy()
 
 if filtro_falha:
     df_falha = df_falha[df_falha['Código'] == filtro_falha]
-    cod = df_falha['Código'].values()
+    cod = df_falha['Código'].item()
     
               
   
