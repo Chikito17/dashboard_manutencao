@@ -5,7 +5,7 @@ import pandas as pd
 
 st.title('Acionamentos')
 
-# Codigo para os Paramentros
+#################### Codigo para os Paramentros
 st.sidebar.title('Filtro DCV:')
 filtro_desc = st.sidebar.text_input('Digite o Parâmetro')
 
@@ -19,9 +19,7 @@ if filtro_desc:
 if not df_filtrado.empty:
     linha = df_filtrado.iloc[0]
 
-
-
-# Codigo para as Falhas
+##################### Codigo para as Falhas
 st.sidebar.title('Codigo de Falha:')
 filtro_falha = st.sidebar.text_input('Digite o codigo')
 
@@ -40,4 +38,16 @@ with aba1:
 
 with aba2:
     st.dataframe(df_falha)
-    st.metric('Código', linha['Código'])
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.metric("Código", linha["Código"])
+
+    with col2:
+        st.metric("Tipo de falha", "Sobrecorrente")
+
+        st.subheader("Descrição")
+        st.write(linha["Descrição"])
+
+        st.subheader("Procedimento")
+        st.write(linha["O que fazer"])
