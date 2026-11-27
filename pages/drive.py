@@ -32,7 +32,7 @@ if filtro_falha:
 aba1, aba2 = st.tabs(['Parametros', 'Codigo de Falhas'])
 
 with aba1:
-    st.metric('Falha',df_filtrado)
+    st.metric('Falha',df_filtrado.shape[filtro_desc])
 
 with aba2:
     st.dataframe(df_falha)
