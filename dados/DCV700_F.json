@@ -1,0 +1,297 @@
+[
+    {
+        "Código": "0",
+        "Descrição": "Nenhuma Falha ou Alarme",
+        "O que fazer": ""
+    },
+    {
+        "Código": "99",
+        "Descrição": "Apagar todas as Falhas apagáveis",
+        "O que fazer": ""
+    },
+    {
+        "Código": "1",
+        "Descrição": "Falha de tensão auxiliar",
+        "O que fazer": "1 - Avaliar Fontes Auxiliares (IFM)\n2 - Trocar POW"
+    },
+    {
+        "Código": "2",
+        "Descrição": "Corrente de armadura - Sobrecorrente. A corrente de armadura é maior que 18-05",
+        "O que fazer": "Tente resetar a falha. Se a falha estiver resetada verifique que:\n1 - O motor esteja OK;\n2 - O motor e o conversor estejam corretamente dimencionados\n3 - Os cabos do motor estejam OK;\n4 - A carga do motor conectado ao DCV700 não tenha mudado;\n5 - Possível diferença de referência de velocidade esteja correta em relação a outras\nseções do acionamento, se a carga for comum;\n6 - 1205 - ARM_CUR_LIM_P, 1206 ARM_CUR_LIM_N e 1805 ARM_OVCUR_LEV\nESTEJAM CORRETOS. Se a falha for repetida diiversas vezers pode ser que o\nconversor esteja sobrecarregado. \nVerifique que a condificação da realimentação de corrente nas placas \nSDCS-PIN-XX esteja correta (veja a codificação na descrição do Hardware) e que\nas conexões SDCS-PIN-XX-X12 a SDCS-CON-1 X12 estejam OK.\n\nSe a menssagem insistir substitua: SDCS-CON-1 ou SDCS-PIN-XX\n"
+    },
+    {
+        "Código": "4",
+        "Descrição": "Sobretemperatura medida do conversor - A temperatura  medida no dissipador de calor\ndo DCV 700é maior que 11304 MAX_ BRIDGE_TEMP.",
+        "O que fazer": "Restrição do fluxo de ar causado por poeira ou instalação inapropriada. Sobrecarga ou \nfalha de um componente (ventilador, fusível, Tiristores).\nVerifique:\n1 - Que a temperatura ambiente esteja abaixo de 40 C;\n2 - As aletas do dissipador de calor remova qualquer poeira ou sujeira;\n3 - Que o DCV 700 não ficou sobrecarregado por muito tempo;\n4 - O ventilador e o fluxo de ar"
+    },
+    {
+        "Código": "5",
+        "Descrição": "Falha de aterramento - O de AI4 (SDCS-IOB-3) tem sido maior que o nível determinado\npor 1520 EARTH_FAULT_L POR MAIS TEMPO QUE  1521 EARTH_FAULT_DELAY",
+        "O que fazer": "Ocorreu uma falha de aterramento na saída do conversor. Desconecte o conversor da \nrede e assegure-se por medição que a tensão esteja zero nos terminais de armadura e\nde campo.\nDesconecte o cabo do motor do conversor e verifique a isolação do cabo e do Motor\nSe não houver falha de isolamento, verifique:\n1 - O transformador de corrente somador T1;\n2 - A conexão do secundário de T1 para X3:11 / X3:12 (SDCS-IOB-3)\nSe nenhuma falha for encontrada, substitua SDCS-IOB-3 ou SDCS-CON-1"
+    },
+    {
+        "Código": "6",
+        "Descrição": "Sobretemperatura medida do motor  - A temperatura medida tem sido maior que aquela\najustada em 1511 MOT1_TEMP_FAULT_L ou a entrada digital selecionada por 1518\nKLIXONSEL está aberta",
+        "O que fazer": "Verifique a temperatura do motor e a razão pela qual esta subiu. Se a temperatura do\nmotor estiver acima da nominal melhore o resfriamento do motor ou redimensione o\nmotor.\nVerifique que o circuito de medição esteja operando corretamente. Três tipos de medições \nsão disponiveis:\n1 - PT100 OU PTC ligadas por uma entrada Analógica (veja 1509 MOT1_TEMP_AI_SEL)\n2 - Sensor térmico KLIXON ligado por uma entrada digital (veja 1518, KLIXONSEL)\n3 - Verifique que o valor de 1511 MOT1_TEMP_FAULT_L esteja correto especialmente \nse estiver selecionado o método de medição outro que PT100.\nSubstitua SDCS-IOB-3 ou SDCS-CON-1"
+    },
+    {
+        "Código": "7",
+        "Descrição": "Sobretemperatura calculada do motor 1 - A temperatura calculada pelo modelo térmico\ndo DCV tem sido maior que 1504 TEMP_MODEL1_TRIP_L",
+        "O que fazer": "O DCV 700 determinou que há uma alta probabilidade do motor ter sobreaquecido. Devido\na um aumento de temperatura ser calculado a partir da corrente do motor e não medida \ndiretamente, o motor podera estar dentro da especificação de aumento de temperatura.\nVerifique a temperatura do motor e a razão pela qual esta subiu.\nVerifique que:\n1 - Os parâmetros do motor estejam corretos;\n2 - Os parâmetros do modelo estejam corretos;\n3 - Que 1504 TEMP_MODEL1_TRIP_L esteja correto.\nSe a temperatura do motor estiver acima da temperatura nominal, verifique o dimensiona-\nmento do motor. Aguarde até que o motor tenha resfriado e tente novamente dar a partida\nno motor.\n"
+    },
+    {
+        "Código": "14",
+        "Descrição": "Falha na medição de velocidade - Os limites de supervisão são determinados por 1514 \nSPEED_MON_EMF_V e 1523 SPEED_MON_MEAS_LEV. Se a velocidade real 10405\nSPEED_ACT não for maior que o valor de 1523 quando 11807 EMF_V exceder o o ponto \n1524 SPEED_MON_EMF_V,   a falha será indicada.\n",
+        "O que fazer": "A razão da falha poderá ser:\n- os pulsos do gerador de pulsos são defeituosos;\n- falta pulso do gerador de pulsos;\n- os pulsos não chegam à placa de controle;\n- a realimentação de velocidade do tacogerador analógico está muito lenta;\n- a polaridade de realimentação de velocidade está errada.\nGerador de Pulsos\nVerifique o LED V17 de SDCS-IOB-3 \n- se o LED estiver piscando, há um curto-circuito entre X5:8 e X5:9[Quando a alimentação\n+24V da SDCS-IOB-3 estiver OK, o LED V17 acende. Nota! Se +5V for utilizado para o \ngerador de pulsos, o LED V17 poderá acender, apesar de existir um curto-circuito em \nAlgum ponto do cabo (de acordo com a  reistência do cabo) conectado em X5: -9\n\nVerifique o gerador de pulso e seu cabo.\nVerifique a fonte de alimentação auxiliar do gerador de pulsos na SDCS-IOB-3. Meça com\n um mulimetro:\n-X5:7 - X5:8 - X5:9 - X5:10 (assegura-se que a tensão é adequada para o gerador de\npulsos utilizado)\n\n- Verifique a condição do Motor, escovas, comutador e se há centelhamento. Tal Modo \nde falha ocorreu no Motor de Ajuste do Edger em 10/2026.\n\nSe a tensão auxiliar estiver faltando ou estiver baixa, verifique:\n- a conexão de SDCS-IOB-3 X2 para  SDCS-CON-1: X2;\n- A CONEXÃO  SDCS-CON-1: X37 PARA SDCS-POW-1: X37\n- Substitua a placa  SDCS-IOB-3  ou  SDCS-CON-1\n- Se a falha persistir, substitua a placa  SDCS-POW-1\n\nTaco Gerador Analógico:\nVerifique o Tacogerador e seu cabo.\nVerificação do valor real de velocidade:\nO valor real da velocidade pode ser verificado utilizando o controle de FEM (1806 SPEED_\nMEAS_MODE = 5). Com o acionamento em funcionamento meça com osciloscopio \n(no caso de tacogerador analógico), o nível e a forma de onda do valor real de velocidade.\nTacogerador Analógico:\n SDCS-IOB-3 X3:1-2\n\nGerador de Pulsos com ligação referênciada:\n SDCS-IOB-3  X5:1-9 (Canal 1)\n                        X5:3-9 (Canal 2)\n                        X5:5-9 (Canal 3, se utilizado)\nGerador de Pulsos com ligação diferêncial:\n                         X5:1-2 (Canal 1)\n                         X5:3-4 (Canal 2)\n                         X5:5-6 (Canal 3, se utilizado)\nSe o valor real da velocidade estiver  correto, substitua a placa SDCS-CON-1 ou \nSDCS0-IOB-3"
+    },
+    {
+        "Código": "17",
+        "Descrição": "Tipo de código do motor não encontrado",
+        "O que fazer": " "
+    },
+    {
+        "Código": "18",
+        "Descrição": "Falha de parâmetro de backup",
+        "O que fazer": "Possível falha do circuito D35 (Memória FLASH) da placa SDCS-CON-1 ou falha da \nprópria placa SDCS-CON-1.\nSubstitua:\nSDCS-CON-1 inclusive os circuitos de memória apropriados."
+    },
+    {
+        "Código": "20",
+        "Descrição": "Erro na comunicação da APC\nO DCV não recebeu mensagem da APC durante o tempo de supervisão determinado em\n1901 APC_COM_TIMEOUT. A ação tomada na falha será de acordo com 1902 \nAPC_COM_BREAKRESP",
+        "O que fazer": "A supervisão de comunicação detectou um erro. A APC e o DCV700 não podem se\ncomunicar.\n\nVerifique primeiro que:\n- os cabos opticos estejam corretamente conectados;\n- o display de 7 segmentos da APC mostre P1 (a APC está no modo Operação)\n- os indicadores da APC, o LED vermelho V50 (watchdog) esteja apagado e o LED V51\n(energizado) esteja aceso.\n\nSe o distribuidor óptico YPC 111 estiver sendo utilizado verifique que:               \n- o LED verde da placa YPC 111 (energizado) esteja aceso.\n\nSe algumas dessa observações não estiver OK veja instruções para investigação de falhas \nda APC\n\nSe um tensão auxiliar externa edstiver conectada em SDCS-COM-1 X1: 1-2, verifique que \nesta esteja OK.\n\nSubstitua a placa SDCS-COM-1. Se a falha perssistir substitua a placa SDCS-CON-1"
+    },
+    {
+        "Código": "21",
+        "Descrição": "Segurança da APC",
+        "O que fazer": ""
+    },
+    {
+        "Código": "23",
+        "Descrição": "Motor Travado\n\n10405 SPPED_ACT está menor que o limite 1516 STALL_SPEED E 10706 TORQ_ACT\nexcede o limite 1517 STALL_TORQUE por um tempo maior que aquele determinado por \n1515 STALL_TIME",
+        "O que fazer": "Verifique se o acionamento do motor está travado ou a carga do motor aumentou"
+    },
+    {
+        "Código": "26",
+        "Descrição": "Sobretemperatura do Motor 2\n\nA temperatura medida é maior que o valor ajustado em 1514 MOT2_TEMP_FAULT_L",
+        "O que fazer": "O DCV 700 determinou que o motor sobreaqueceu  que o limite de desligamento foi\nexcedido.\nVerifique que o circuito de medição esteja operando corretamente. Dois tipos de medição\nsão disponíveis:\n- PT100 ou PTC ligadas por uma entrada analógica (veja1512 MOT2_TEMP_AI_SEL)\nVerifique a temperatura do motor e a razão pela qual ela subiu. "
+    },
+    {
+        "Código": "27",
+        "Descrição": "Sobrecarga do motor 2\n\nA temperatura calculada pelo modelo térmico do DCV é maior que 1508 \nTEMP_MODEL2_TRIP_L",
+        "O que fazer": "O DCV 700 determinou que há uma alta probabilidade do motor ter sobreaquecido. Devido\nao aumento de temperatura ser calculado a pártir da corrente do motor e não medida\ndiretamente, o motor poderá estar dentro da especificação de aumento de temperatura.\n\nVerifique a temperatura do motor e a razão pela qual está subiu.\n\nVerifique que os parâmetros do motor e do modelo térmico estejam corretos.\n\nSe a temperatura do motor estiver acima da temperatura nominal, melhore o resframento do\nmotor ou redimensione o motor.\nAguarde até que o motor tenha rsfriado e tente novamente dar a partida ao DCV 700"
+    },
+    {
+        "Código": "28",
+        "Descrição": "Sobretenção da Armadura DC\n\nO Valor da tensão de armadura é maior que 1522 ARMATURE_OVERVOLT_L",
+        "O que fazer": "Se a falha aparecer imediatamente na energização, é provável que a razão esteja em\nalgum lugar do hardware. Se a falha aparecer quando o acionamento estiver em \nfuncionamento, o mais provável  é que o acionamento esteja controlando erradamente.\n\nVerifique primeiro que:\n\n- Se for possível operar o acionamento, meça a tensão de armadura real e compare o \nresultado com o valor medido pelo programa do DCV;\n- o valor da corrente de campo esteja correta (especialmente se a redução de campo for\nutilizada)\n- Se a tensão de alimentação esteja correta e corresponda a 1806 U_SUPPLY\n- Se o valor de 11303 U_CONV_V está correto;\n- Se a escala da medição de velocidade está correta;\n- Se a condição de SDCS-PIN-XX X12 para SDCS-CON-1 X12\n- A codificação de feedback de tensão da placa SDCS-PIN-XX está correta (veja a \ncodificação da Descrição do hardware)\nSe a mensagem de falha for repetida, substitua:\nSDCS-CON-1 board or SDCS-PIN-XX"
+    },
+    {
+        "Código": "29",
+        "Descrição": "Subtensão da tensão principal AC\n\n11801 U_NET_ACT é menor que 901 U_NET_MIN1 maior que 903 PWR_DOWN_TIME\nou imediatamente quando 11801 UNET_ACT for menor que 902 U_NET_MIN2",
+        "O que fazer": "Meça a tensão de alimentação e verifique se corresponde aos valores nominais do \nconversor e abastecimento (1806 U_SUPPLY 11303 U_CONV_V)\n\nVerificar:\n- A conexão de SDCS-PIN-51 X12 para SDCS-CON-1 X12\n- A codificação de feedback de tensão da placa SDCS-PIN 51 está correta (consulte a \ncodificação do descrição do hardware)\nSe a mensagem de falha for repetida, substitua:\nPlaca SDCS-CON-1 ou SDCS-PIN-51"
+    },
+    {
+        "Código": "30",
+        "Descrição": "Sobretensão da tensão principal AC\n11801 U_NET_ACT foi de pelo menos 1300% para alta por mais de 10s",
+        "O que fazer": "O rastreamento desta falha pode ser feito da mesma maneira que acima (subtensão de \nrede)"
+    },
+    {
+        "Código": "31",
+        "Descrição": "Falha da unidade de  sincronização de disparo.\n\nA perturbação (intervalos de meio ciclo) da tensão de alimentação é notada quando o \nconversor está funcionando",
+        "O que fazer": "Meça se todas as fases estão OK após o contator principal. [WARNING! HIGH POWER].\nVerifique se a tensão de alimentação cumpre os requisitos de DCV.\nVerificar:\nA conexão e codificação da placa SDCS-PIN-XX\nTroque a placa SDCS-CON-1 ou placa SDCS-PIN-XX"
+    },
+    {
+        "Código": "32",
+        "Descrição": "Sobrecorrente do excitador do campo 1\n\n11810 FIELD1_CUR_ACT é maior que 12100 FIELD1_OVER_CUR_LEV",
+        "O que fazer": "Verificar:\n- Os parâmetros de controle do excitador de campo\n- A conexão do excitador de campo\n- O nível de conexão e isolamento da bobina de campo\n- O nível de conexão e isolamento do cabo de campo\n\nSe necessário troque o excitador de campo ou a placa SDCS-CON-1"
+    },
+    {
+        "Código": "33",
+        "Descrição": "Erro de comunicação do excitador de campo 1\n\nErro de comunicação entre SDCS-CON-1 e SDCS-FEX-XX é notado",
+        "O que fazer": "Verificar:\n- A conexão SDCS-CON-1 X14 - SDCS-FEX-1(2) X14 (FLATCABLE)\n- A conexão SDCS-CON-1 X16: 1-2-3 SDCS-FEX-3 X3:1-2-3\n- Tensão auxiliar do SDCS-FEX-3 do terminal X2 1-2 (110Vac ou 220Vac)\n- O fusível do terminal F71 do SDCS-FEX-3\nTroque a placa SDCS-FEX-X ou SDCS-CON-1"
+    },
+    {
+        "Código": "34",
+        "Descrição": "Ondulação da corrente de armadura",
+        "O que fazer": "Provavelmente o motivo é um ciclo de disparo ausente de algum tiristor.\nVerificar:\n- Valor real atual por osciloscópio (por exemplo, de SDCS-IOB-3 X:4/5 os 6 pulsos durante um ciclo de rede\ndeve ser encontrado)\n- A conexão de circuitos de Gate\n- Gate - Resistência Kathode do tiristor (por ohmímetro) (compare os resultados e se houver valor da resistência é claramente maior que o outro, troque o tiristor)"
+    },
+    {
+        "Código": "35",
+        "Descrição": "Sobrecorrente do excitador do campo 2\n\n11812 FIELD2_CUR_ACT é maior que 1212 FIELD2_OVER_CUR_LEV",
+        "O que fazer": "Verificar:\n- O conector do excitador de campo\n- O nível de conexão e isolamento da bobina de campo\n- O nível de conexão e isolamento do cabo de campo\nSe necessário troque o excitador de campo"
+    },
+    {
+        "Código": "36",
+        "Descrição": "Erro de comunicação do excitador de campo 2\n\nAviso de erro de comunicação entre SDCS-CON-1 e SDCS-FEX",
+        "O que fazer": "Verificar:\n- A conexão SDCS-CON-1 X14 - SDCS-FEX-1(2) X14 (flatcable)\n- A conexão SDCS-CON-1 X16: 1-2-3 SDCS-FEX-3 X3: 1-2-3\n- Auxl. tensão de SDCS-FEX-3 do terminal X2:1 - 2\n- O fusível interno F71 do SDCS-FEX-3\nTroque a placa SDCS-FEX-X ou SDCS-CON-1"
+    },
+    {
+        "Código": "37",
+        "Descrição": "Sobrevelocidade do motor\n\n10405 SPEED_ACT é maior que 1210 OVERSPEED_LIMIT",
+        "O que fazer": "Certifique-se de que o inversor não seja controlado de forma errada (referência de \nvelocidade, referência de campo, etc.).\n\nVerificar:\n- A escala (e conexão) do taco analógico\n- A escala (e conexão) do codificador incremental\n- A conexão mecânica do inversor se o controle de torque for usado\n- O valor da corrente de campo\nAltere o SDCS-IOB-3 ou SDCS-CON-1"
+    },
+    {
+        "Código": "38",
+        "Descrição": "Falha de sequencia de fase \n\nA ordem de fase não corresponde ao valor de 1801 PHASE_SEQ_CW (def. = 2 que\nsignifica R-S-T)",
+        "O que fazer": "Se a fase for alterada por 1801 PHASE_SEQ_CW, o sentido de rotação do ventilador \ntambém mudou para ser mudado.\nA maneira mais recomendada é alterar a ordem das fases da alimentação para que \nseja R-S-T.\nSe esta falha aparecer depois que o inversor estiver operando corretamente, altere:\n- Placa SDCS-CON-1 ou SDCS-PIN-XX"
+    },
+    {
+        "Código": "39",
+        "Descrição": "Perda de reconhecimento de campo\n\nO sinal de reconhecimento do excitador de campo está faltando pelo menos 6 segundos \napós o comando ser ativado.",
+        "O que fazer": "Verificar:\n- 1110 FEXC_SEL corresponde ao tipo de excitador de campo utilizado\n- A tensão CA do transformador de alimentação de campo para SDCS-FEX-XX está OK\nSe o nível da corrente de campo estiver OK e a falha persistir:\n- Troque SDCS-FEX-XX ou SDCS-CON-1\nVerifique quando algum excitador de campo \"upnormal\" é usado:\n- 1110 FEXC_SEL corresponde ao tipo de excitador de campo usado\n- A conexão do reconhecimento\n- Se AI reconhecer for usado, o feedback de nível corresponde ao nível de corrente de \ncampo\n- Se o reconhecimento de DI for usado, o estado do DI usado quando o excitador de \ncampo estiver operando.\nRepare o sinal de feedback ou troque SDCS-IOB-2 (DI ack.), SDCS-IOB-3 (AI ack.)\nou SDCS-CON-1\n- Verificar Encoder. Em alguns casos na LTQ o problema era o encoder.\n- Os Motores SM1 (2026) e SM2 (2020) já desarmaram por falha na linha Neutra do Motor"
+    },
+    {
+        "Código": "40",
+        "Descrição": "Ventilador externo não reconhecido\n\nO sinal de confirmação do ventilador externo está ausente pelo menos 6 segundos após o \ncomando de ligar (ON) ter sido dado.",
+        "O que fazer": "Verificar:\n-1112 EXT_FAN_ACK_MODE está correto\n- mcb F6 está fechado\n- O relé térmico F7 não é disparado\n- O contator K6 está fechado\n- O estado de DI1 quando K6 está fechado\n- O resistor de adaptação da DI1 está OK?\n- O estado de DO1 após o comando\nSubstitua o SDCS-CON-1 ou SDCS-IOB-2"
+    },
+    {
+        "Código": "41",
+        "Descrição": "contator principal não reconhecido\n\nO sinal de reconhecimento do cont principal está faltando em menos de 6 segundos após \ncomando \"ON\" é dado.",
+        "O que fazer": " Verificar:\n-o estado de DI3 quando o contator principal está fechado\n-o resistor de adaptação de DI3 está OK\n-o estado de DO3 após o comando\n-a operação de ajuda cont K10 (se usado)\nAltere o SDCS-CON-1 ou, se necessário, o SDCS-IOB-2"
+    },
+    {
+        "Código": "42",
+        "Descrição": "Status do primeiro excitador de campo não está OK\n\nAutodiagnóstico do primeiro SDCS-FEX-2/DCF503/504 notou um erro. Status\nde 10808 FEX1_OK = 0.",
+        "O que fazer": "Verifique:\n-operação SDCS-FEX-2, DCF503/504\nAltere o excitador de campo, se necessário."
+    },
+    {
+        "Código": "43",
+        "Descrição": "Status do segundo excitador de campo não está OK\n\nAutodiagnóstico do segundo SDCS-FEX-2 notou um erro. Estado de 10810 FEX2_OK = 0.",
+        "O que fazer": "Verificar:\n-a operação SDCS-FEX-2, DCF503/504\nAltere o excitador de campo, se necessário."
+    },
+    {
+        "Código": "44",
+        "Descrição": "perda de algum cartão IO",
+        "O que fazer": ""
+    },
+    {
+        "Código": "48",
+        "Descrição": "Sobretemperatura medida do motor 2",
+        "O que fazer": ""
+    },
+    {
+        "Código": "50",
+        "Descrição": "Ventilador do conversor não encontrado\n\nFalha no tipo C4.\nC1, C2, C3 = alarme",
+        "O que fazer": "Verificar:\n-o estado de DO1 após o comando \"on\"\n-F8 e F9 estão fechados\n-DI2 X6:2 estado."
+    },
+    {
+        "Código": "65",
+        "Descrição": "Reversal Fault",
+        "O que fazer": ""
+    },
+    {
+        "Código": "66",
+        "Descrição": "Diferencial de Corrente",
+        "O que fazer": ""
+    },
+    {
+        "Código": "99",
+        "Descrição": "RESET",
+        "O que fazer": ""
+    },
+    {
+        "Código": "101",
+        "Descrição": "Inibição da chave de inicio falsa foi ligada",
+        "O que fazer": ""
+    },
+    {
+        "Código": "102",
+        "Descrição": "Botão de parada de emergência foi acionado",
+        "O que fazer": ""
+    },
+    {
+        "Código": "103",
+        "Descrição": "Motor 1 alarme de temperatura",
+        "O que fazer": ""
+    },
+    {
+        "Código": "104",
+        "Descrição": "Motor 1 alarme de sobretemperatura",
+        "O que fazer": ""
+    },
+    {
+        "Código": "105",
+        "Descrição": "Conversor, Alarme de sobretemperatura",
+        "O que fazer": ""
+    },
+    {
+        "Código": "106",
+        "Descrição": "Erro de endereçamento da unidade TC",
+        "O que fazer": ""
+    },
+    {
+        "Código": "108",
+        "Descrição": "Falha de backup da memória RAM",
+        "O que fazer": ""
+    },
+    {
+        "Código": "110",
+        "Descrição": "Inicio a frio do sistema",
+        "O que fazer": ""
+    },
+    {
+        "Código": "112",
+        "Descrição": "Indice Mestre/Seguidor Alarme",
+        "O que fazer": ""
+    },
+    {
+        "Código": "114",
+        "Descrição": "APC - Conexão OK",
+        "O que fazer": "Verificar fibra de ligaçao com distribuidor optico"
+    },
+    {
+        "Código": "118",
+        "Descrição": "Alarme de Subtensão",
+        "O que fazer": ""
+    },
+    {
+        "Código": "120",
+        "Descrição": "Alarme de desvio de corrente de Armadura",
+        "O que fazer": ""
+    },
+    {
+        "Código": "123",
+        "Descrição": "Motor 2 - Alarme de temperatura",
+        "O que fazer": ""
+    },
+    {
+        "Código": "124",
+        "Descrição": "Motor 2 - Alarme de sobretemperatura",
+        "O que fazer": ""
+    },
+    {
+        "Código": "125",
+        "Descrição": "Alarme Mestre/Seguidor",
+        "O que fazer": ""
+    },
+    {
+        "Código": "126",
+        "Descrição": "Perda de reconhecimento do ventildador do conversor",
+        "O que fazer": ""
+    },
+    {
+        "Código": "127",
+        "Descrição": "Perda de reconhecimento do ventildador externo",
+        "O que fazer": ""
+    },
+    {
+        "Código": "128",
+        "Descrição": "Recebido comando de fechamento da união da APC",
+        "O que fazer": ""
+    },
+    {
+        "Código": "129",
+        "Descrição": "Código do tipo mudado durante a queda de energia",
+        "O que fazer": ""
+    },
+    {
+        "Código": "130",
+        "Descrição": "Gap da tensão AC indicada. - AUTO-FECHAMENTO",
+        "O que fazer": ""
+    },
+    {
+        "Código": "132",
+        "Descrição": "Alarme de subtensão auxiliar",
+        "O que fazer": ""
+    }
+]
