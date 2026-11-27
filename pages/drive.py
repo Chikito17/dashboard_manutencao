@@ -46,7 +46,7 @@ with aba2:
         with st.expander("Procedimento de correção"):
             st.text(linha["O que fazer"])
     else:
-        st.metric('Codigo', 'Digite um Codigo ao lado')
+        st.dataframe(df_falha)
 
         
         
