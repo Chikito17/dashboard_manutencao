@@ -14,10 +14,9 @@ df_filtrado = df_dcv.copy()
 
 if filtro_desc:
     df_filtrado = df_filtrado[df_filtrado['grupo'] == filtro_desc]
-    #df_filtrado = df_filtrado[df_filtrado['grupo'].astype(str).str.contains(filtro_desc, case=False, na=False)]
+    
 
-if not df_filtrado.empty:
-    linha = df_filtrado.iloc[0]
+
 
 ##################### Codigo para as Falhas
 st.sidebar.title('Codigo de Falha:')
@@ -28,6 +27,8 @@ df_falha = df_dcv700.copy()
 
 if filtro_falha:
     df_falha = df_falha[df_falha['Código'] == filtro_falha]
+    cod = df_falha['Código']
+    
               
   
 aba1, aba2 = st.tabs(['Parametros', 'Codigo de Falhas'])
@@ -38,4 +39,6 @@ with aba1:
 
 with aba2:
     st.dataframe(df_falha)
+    st.metric('Codigo', cod)
+    
   
