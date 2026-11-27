@@ -38,7 +38,7 @@ with aba1:
 
 with aba2:
       
-    if not df_falha.empty:
+    if filtro_falha:
         st.metric('Codigo', 'F'+df_falha['Código'].item())
         st.subheader("Descrição da falha")
         linha = df_falha.iloc[0]
