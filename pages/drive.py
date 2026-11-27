@@ -27,7 +27,6 @@ df_falha = df_dcv700.copy()
 
 if filtro_falha:
     df_falha = df_falha[df_falha['Código'] == filtro_falha]
-    cod = df_falha['Código'].item()
     
               
   
@@ -39,6 +38,10 @@ with aba1:
 
 with aba2:
     st.dataframe(df_falha)
-    st.metric('Codigo', cod)
+    if not df_falha.empty:
+        st.metric('Codigo', df_falha['Código'].item()
+    
+              
+    )
     
   
