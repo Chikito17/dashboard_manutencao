@@ -37,11 +37,17 @@ with aba1:
     
 
 with aba2:
-    st.metric('Codigo', 0)
-    if not df_falha.empty:
-        st.metric('Codigo', df_falha['Código'].item()
+    col1, col2 = st.columns(2)
+    with col1:
+        if not df_falha.empty:
+            st.metric('Codigo', df_falha['Código'].item())
+
+    with col2:
+        if not df_falha.empty:
+            st.metric('Descrição', df_falha['Descrição'].item())
+        
        
               
-    )
+    
     
   
