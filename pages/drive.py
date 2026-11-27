@@ -1,7 +1,6 @@
 import streamlit as st
 from dataset import df_dcv
 from dataset import df_dcv700
-import pandas as pd
 from dataset import df_vaziodcv
 
 st.title('Acionamentos')
