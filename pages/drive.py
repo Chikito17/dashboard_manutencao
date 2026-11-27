@@ -43,8 +43,8 @@ with aba2:
             st.metric('Codigo', df_falha['Código'].item())
 
     with col2:
-        if not df_falha.empty:
-            st.metric('Descrição', df_falha['Descrição'].item())
+        st.subheader("Descrição da falha")
+        
         
        
               
