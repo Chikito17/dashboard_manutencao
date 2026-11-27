@@ -37,7 +37,7 @@ with aba1:
     
 
 with aba2:
-    st.dataframe(df_falha)
+    #st.dataframe(df_falha)
     col1, col2 = st.columns(2)
 
     with col1:
